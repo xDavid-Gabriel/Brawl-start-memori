@@ -6,19 +6,26 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>MemoryBrawl</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
       rel="stylesheet"
     />
     <link href="css/site.css" rel="stylesheet" />
     <link href="css/estilos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <title>MemoryBrawl</title>
   </head>
 
   <body>
     <div id="bienvenida" class="bienvenida">
-      <div class="logo"><img src="./img/logo.svg" alt="logo" /></div>
-      <div class="bienvenida-botones">
+      <div class="logo" data-aos="zoom-in">
+        <img src="./img/logo.svg" alt="logo" />
+      </div>
+      <div
+        class="bienvenida-botones"
+        data-aos="fade-right"
+        data-aos-delay="400"
+      >
         <button id="juego-normal">
           <div class="derecho">¡jugar!</div>
         </button>
@@ -369,7 +376,13 @@
       id="sonido-8bit2"
       preload="auto"
     ></audio>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: "ease-out-back",
+        duration: 1000,
+      });
+    </script>
     <script src="js/variables-globales.js"></script>
     <script src="js/baraja-reparte.js"></script>
     <script src="js/descubrir-comparar.js"></script>
