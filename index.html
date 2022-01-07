@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>MemoryBrawl</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/estilos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="bienvenida" class="bienvenida">
+      <div class="logo"><img src="./img/logo.svg" alt="logo" /></div>
+      <div class="bienvenida-botones">
+        <button id="juego-normal">
+          <div class="derecho">¡jugar!</div>
+        </button>
+        <button id="juego-relax">
+          <div class="derecho">Modo relax</div>
+        </button>
+      </div>
+    </div>
+
+    <header class="cabecera">
+      <div class="contadores">
+        <div class="contador-item">
+          <h4 class="cabecera-titulo">Movimientos</h4>
+          <div class="cabecera-num">
+            <span id="mov">00</span>/<span id="mov-total">20</span>
+          </div>
+        </div>
+
+        <div id="cronometro" class="contador-item">
+          <h4 class="cabecera-titulo">Tiempo</h4>
+          <div class="cabecera-num">
+            <span id="minutos">00</span>:<span id="segundos">00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="niveles">
+        <h4 class="cabecera-titulo">Nivel</h4>
+        <div class="cabecera-num"><span id="nivel">01</span></div>
+      </div>
+      <button id="control-nivel" class="control-nivel">…</button>
+    </header>
+
+    <main>
+      <div id="mesa" class="mesa"><img src="img/dinamike.jpg" /></div>
+
+      <div id="feedback" class="feedback">
+        <div class="modal">
+          <!-- <h2>¡Muy bien!</h2> -->
+          <button id="subir">Siguiente nivel</button>
+          <button class="reiniciar">Reiniciar</button>
+          <h2 class="victoria">¡VICTORIA!</h2>
+          <img class="triangulo" src="./img/triangulo.svg" alt="triangulo" />
+          <div class="surgue">
+            <img src="./img/surgue.svg" alt="surgue" />
+          </div>
+        </div>
+      </div>
+
+      <div id="gameOver" class="game-over">
+        <div class="modal">
+          <h2>¡Oh no!</h2>
+          <p>Te has quedado sin movimientos</p>
+          <button class="reiniciar">Reiniciar</button>
+          <h2 class="derrota">¡DERROTA</h2>
+          <img
+            class="triangulo-rojo"
+            src="./img/triangulo-rojo.svg"
+            alt="triangulo"
+          />
+          <div class="jessi">
+            <img src="./img/jessi.svg" alt="jessi" />
+          </div>
+        </div>
+      </div>
+
+      <div id="timeOver" class="game-over">
+        <div class="modal">
+          <h2>¡Oh no!</h2>
+          <p>Te has quedado sin tiempo</p>
+          <button class="reiniciar">Reiniciar</button>
+          <h2 class="derrota">¡DERROTA</h2>
+          <img
+            class="triangulo-rojo"
+            src="./img/triangulo-rojo.svg"
+            alt="triangulo"
+          />
+          <div class="jessi">
+            <img src="./img/jessi.svg" alt="jessi" />
+          </div>
+        </div>
+      </div>
+
+      <div id="endGame" class="end-game">
+        <div class="modal">
+          <h2>¡Enhorabuena!</h2>
+          <p>Has superado todos los niveles</p>
+          <button class="reiniciar">Reiniciar</button>
+          <h2 class="victoria">¡VICTORIA!</h2>
+          <img class="triangulo" src="./img/triangulo.svg" alt="triangulo" />
+          <div class="surgue">
+            <img src="./img/surgue.svg" alt="surgue" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="selecciona-nivel">
+      <button id="cierra-niveles" class="cierra-niveles">&times;</button>
+      <ul></ul>
+    </div>
+
+    <audio
+      src="sonidos/acierto.mp3"
+      class="sonido"
+      id="sonido-acierto"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/error.mp3"
+      class="sonido"
+      id="sonido-error"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/carta.mp3"
+      class="sonido"
+      id="sonido-carta"
+      preload="auto"
+    ></audio>
+
+    <audio
+      src="sonidos/inicio.mp3"
+      class="sonido"
+      id="sonido-inicio"
+      preload="auto"
+    ></audio>
+
+    <audio
+      src="sonidos/victoria.mp3"
+      class="sonido"
+      id="sonido-victoria"
+      preload="auto"
+    ></audio>
+
+    <audio
+      src="sonidos/derrota.mp3"
+      class="sonido"
+      id="sonido-derrota"
+      preload="auto"
+    ></audio>
+    <!--DINAMIKE-->
+    <audio
+      src="sonidos/dinamike/dinamike.mp3"
+      class="sonido"
+      id="sonido-dinamike"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/dinamike/dinamike2.mp3"
+      class="sonido"
+      id="sonido-dinamike2"
+      preload="auto"
+    ></audio>
+    <!--POCO-->
+    <audio
+      src="sonidos/poco/poco.mp3"
+      class="sonido"
+      id="sonido-poco"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/poco/poco2.mp3"
+      class="sonido"
+      id="sonido-poco2"
+      preload="auto"
+    ></audio>
+    <!--FRANK-->
+    <audio
+      src="sonidos/frank/frank.mp3"
+      class="sonido"
+      id="sonido-frank"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/frank/frank2.mp3"
+      class="sonido"
+      id="sonido-frank2"
+      preload="auto"
+    ></audio>
+    <!--MORTIS-->
+    <audio
+      src="sonidos/mortis/mortis.mp3"
+      class="sonido"
+      id="sonido-mortis"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/mortis/mortis2.mp3"
+      class="sonido"
+      id="sonido-mortis2"
+      preload="auto"
+    ></audio>
+    <!--PRIMO-->
+    <audio
+      src="sonidos/primo/primo.mp3"
+      class="sonido"
+      id="sonido-primo"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/primo/primo2.mp3"
+      class="sonido"
+      id="sonido-primo2"
+      preload="auto"
+    ></audio>
+
+    <!--COLT-->
+    <audio
+      src="sonidos/colt/colt.mp3"
+      class="sonido"
+      id="sonido-colt"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/colt/colt2.mp3"
+      class="sonido"
+      id="sonido-colt2"
+      preload="auto"
+    ></audio>
+    <!--ROSA-->
+    <audio
+      src="sonidos/rosa/rosa.mp3"
+      class="sonido"
+      id="sonido-rosa"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/rosa/rosa2.mp3"
+      class="sonido"
+      id="sonido-rosa2"
+      preload="auto"
+    ></audio>
+    <!--BROCK-->
+    <audio
+      src="sonidos/brock/brock.mp3"
+      class="sonido"
+      id="sonido-brock"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/brock/brock2.mp3"
+      class="sonido"
+      id="sonido-brock2"
+      preload="auto"
+    ></audio>
+    <!--BARLEY-->
+    <audio
+      src="sonidos/barley/barley.mp3"
+      class="sonido"
+      id="sonido-barley"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/barley/barley2.mp3"
+      class="sonido"
+      id="sonido-barley2"
+      preload="auto"
+    ></audio>
+    <!--TICK-->
+    <audio
+      src="sonidos/tick/tick.mp3"
+      class="sonido"
+      id="sonido-tick"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/tick/tick2.mp3"
+      class="sonido"
+      id="sonido-tick2"
+      preload="auto"
+    ></audio>
+    <!--BULL-->
+    <audio
+      src="sonidos/bull/bull.mp3"
+      class="sonido"
+      id="sonido-bull"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/bull/bull2.mp3"
+      class="sonido"
+      id="sonido-bull2"
+      preload="auto"
+    ></audio>
+    <!--BOO-->
+    <audio
+      src="sonidos/boo/boo.mp3"
+      class="sonido"
+      id="sonido-boo"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/boo/boo2.mp3"
+      class="sonido"
+      id="sonido-boo2"
+      preload="auto"
+    ></audio>
+    <!--LEON-->
+    <audio
+      src="sonidos/leon/leon.mp3"
+      class="sonido"
+      id="sonido-leon"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/leon/leon2.mp3"
+      class="sonido"
+      id="sonido-leon2"
+      preload="auto"
+    ></audio>
+    <!--MRP-->
+    <audio
+      src="sonidos/mrp/mrp.mp3"
+      class="sonido"
+      id="sonido-mrp"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/mrp/mrp2.mp3"
+      class="sonido"
+      id="sonido-mrp2"
+      preload="auto"
+    ></audio>
+    <!--RICO-->
+    <audio
+      src="sonidos/rico/rico.mp3"
+      class="sonido"
+      id="sonido-rico"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/rico/rico2.mp3"
+      class="sonido"
+      id="sonido-rico2"
+      preload="auto"
+    ></audio>
+    <!--8BIT-->
+    <audio
+      src="sonidos/8bit/8bit.mp3"
+      class="sonido"
+      id="sonido-8bit"
+      preload="auto"
+    ></audio>
+    <audio
+      src="sonidos/8bit/8bit2.mp3"
+      class="sonido"
+      id="sonido-8bit2"
+      preload="auto"
+    ></audio>
+
+    <script src="js/variables-globales.js"></script>
+    <script src="js/baraja-reparte.js"></script>
+    <script src="js/descubrir-comparar.js"></script>
+    <script src="js/acierto-error.js"></script>
+    <script src="js/cronometro.js"></script>
+    <script src="js/contador.js"></script>
+    <script src="js/finalizar.js"></script>
+    <script src="js/cambia-nivel.js"></script>
+    <script src="js/game-over.js"></script>
+    <script src="js/menu-niveles.js"></script>
+    <script src="js/iniciar.js"></script>
+    <script src="js/comienza-juego.js"></script>
+  </body>
+</html>
